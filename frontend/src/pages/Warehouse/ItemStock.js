@@ -265,7 +265,6 @@ function ItemStock() {
     // Apply status filter
     if (statusFilter !== 'all') {
       filtered = filtered.filter(item => {
-        const totalStock = item.warehouses.reduce((sum, wh) => sum + wh.stock, 0);
         const totalAvailable = item.warehouses.reduce((sum, wh) => sum + wh.available, 0);
         
         switch (statusFilter) {
@@ -291,35 +290,6 @@ function ItemStock() {
     if (totalAvailable === 0) return 'out_of_stock';
     if (totalAvailable <= item.reorderLevel) return 'low_stock';
     return 'in_stock';
-  };
-
-  const getStatusIcon = (status) => {
-    switch (status) {
-      case 'in_stock':
-        return <CheckCircleIcon className="h-5 w-5 text-green-500" />;
-      case 'low_stock':
-        return <ExclamationTriangleIcon className="h-5 w-5 text-yellow-500" />;
-      case 'out_of_stock':
-        return <XCircleIcon className="h-5 w-5 text-red-500" />;
-      default:
-        return <CubeIcon className="h-5 w-5 text-gray-500" />;
-    }
-  };
-
-  const getStatusBadgeColor = (status) => {
-    switch (status) {
-      case 'in_stock': return 'bg-green-100 text-green-800';
-      case 'low_stock': return 'bg-yellow-100 text-yellow-800';
-      case 'out_of_stock': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
-  };
-
-  const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    }).format(value);
   };
 
   const categories = [...new Set(inventory?.map(item => item.category) || [])];

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   CheckCircleIcon,
-  ClockIcon,
-  ExclamationTriangleIcon,
-  UserIcon
+  ClockIcon
 } from '@heroicons/react/24/outline';
 import toast from 'react-hot-toast';
 
@@ -167,15 +165,6 @@ function PickLists() {
       case 'in_progress': return 'bg-blue-100 text-blue-800';
       case 'completed': return 'bg-green-100 text-green-800';
       default: return 'bg-gray-100 text-gray-800';
-    }
-  };
-
-  const getPriorityColor = (priority) => {
-    switch (priority) {
-      case 'high': return 'text-red-600';
-      case 'medium': return 'text-yellow-600';
-      case 'low': return 'text-green-600';
-      default: return 'text-gray-600';
     }
   };
 

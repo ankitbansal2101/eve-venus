@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   DocumentChartBarIcon,
   CalendarIcon,
-  ArrowDownTrayIcon,
-  FunnelIcon
+  ArrowDownTrayIcon
 } from '@heroicons/react/24/outline';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
 

@@ -12,7 +12,6 @@ function StockCheck() {
   const [inventory, setInventory] = useState([]);
   const [filteredInventory, setFilteredInventory] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedItems, setSelectedItems] = useState([]);
   const [reserveQuantities, setReserveQuantities] = useState({});
   const [loading, setLoading] = useState(true);
 
